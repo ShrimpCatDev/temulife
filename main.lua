@@ -1,7 +1,15 @@
 require("init")
 
 function love.load()
-    font = require("assets/font/skull")
+    gs=require("lib/hump/gamestate")
+    gs.registerEvents()
+
+    state={
+        planet=require("state/planet")
+    }
+    gs.switch(state.planet)
+
+    font = lg.newFont("assets/font/Able 5.ttf",9)--require("assets/font/skull")
     lg.setFont(font)
     shove.createLayer("game")
 end
@@ -12,6 +20,6 @@ end
 
 function love.draw()
     beginDraw()
-        lg.print("hello world")
+        
     endDraw()
 end
